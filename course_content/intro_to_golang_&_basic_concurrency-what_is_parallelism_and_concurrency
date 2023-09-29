@@ -1,0 +1,69 @@
+Unit_name: Intro to Golang & Basic Concurrency
+Page_name: What is parallelism and concurrency?
+
+1. What is the correct understanding of Concurrency?
+
+    A) Executing multiple tasks at the same time
+    - Incorrect. This is a common confusion and characteristic of Parallelism. Concurrency deals with structuring the program to handle multiple tasks with possible interaction.
+
+    B) Tasks start, run, and complete in overlapping time intervals 
+    - Correct. Concurrency is about dealing with multiple things at once where tasks are not strictly executed one after another but can overlap in execution.
+
+    C) Tasks are performed one by one, each task waiting for the previous one to finish
+    - Incorrect. This describes Sequential programming, not Concurrency. Concurrency is designed to manage complex tasks where execution order is variable.
+
+2. Given the Go code snippet: 
+```go
+go func() {
+  fmt.Println("Hello")
+}()
+```
+What does the `go` keyword denotes in the above code?
+
+    A) The `go` keyword stands for Goroutine which means executing the function concurrently.
+    - Correct. The `go` keyword starts a new Goroutine which will execute the associated function concurrently.
+
+    B) The `go` keyword defines a function.
+    - Incorrect. The `go` keyword doesn't define a function, it precedes the function definition indicating that the function should execute in a Goroutine.
+  
+    C) The `go` keyword runs the function in parallel.
+    - Incorrect. `go` starts a Goroutine and schedules its execution concurrently. Only when there are multiple processors can these Goroutines potentially execute in parallel.
+
+3. What is the key feature of Sequential programming?
+
+    A) The tasks run together in parallel.
+    - Incorrect. Sequential programs execute tasks one after the other, not in parallel. 
+
+    B) The tasks start, run, and complete in overlapping time intervals.
+    - Incorrect. This refers to Concurrency where tasks can have overlapping runtime. Sequential execution mandates completion of one task before another begins.
+
+    C) Each task is executed one by one, waiting for the previous task to finish.
+    - Correct. In Sequential programming the next task isn't started until the previous task is complete.
+
+4. What does the following go code do?
+```go
+ch := make(chan int, 2)
+ch <- 1
+ch <- 2
+fmt.Println(<-ch, <-ch)
+```
+
+    A) It tries to write to a buffered channel and causes a deadlock.
+    - Incorrect. In this code, no deadlock situation arises as the channel's buffer size is adequate for the values being sent.
+
+    B) It tries to write to a channel and then reads from the channel.
+    - Correct. Here, two integers are written into a buffered channel. Then those two values are read and printed.
+
+    C) It creates an unbuffered channel and causes a deadlock.
+    - Incorrect. It's a buffered channel, and hence no deadlock situation arises. Deadlocks would occur when there's an attempt to read/write from/to the channel, and it's unbuffered or full. 
+
+5. How can you achieve Parallelism in Go?
+
+    A) By using Goroutines and channels.
+    - Correct. While Goroutines, together with channels, can be used to manage multiple tasks concurrently, the actual parallelism execution depends on the system's available cores.
+
+    B) By executing the function one after the other.
+    - Incorrect. Sequential programming does not give parallelism; to achieve parallelism, tasks need to be executed simultaneously.
+
+    C) By using a single Goroutine.
+    - Incorrect. Executing a single Goroutine can provide concurrent execution but not parallelism. For parallelism, multiple Goroutines and adequate system cores are required.
