@@ -1,0 +1,205 @@
+Unit_name: Intro to Golang & Basic Concurrency
+Page_name: Tour of Go 1 (Basics)
+
+Question 1: Examine the below Go snippet. What does it do?
+
+```go
+package main
+
+func main() {
+    println("Hello, Go!")
+}
+```
+
+A) Writes "Hello, Go!" to the console
+- Correct. This program uses the `println` function to output the statement to the console.
+
+B) Creates a new function named "Hello, Go!"
+- Incorrect. The `func` keyword declares functions in Go. The provided code shows a function called `main` being defined that outputs "Hello, Go!".
+
+C) Returns the string "Hello, Go!"
+- Incorrect. This would typically be in a function's logic. However, the provided code snippet prints the string directly to the console without using a `return` statement.
+
+Question 2: Choose the correct syntax to declare a function in Go.
+
+A) `fun <function name>()`
+- Incorrect. Although similar to syntax in Kotlin, Go uses the `func` keyword to declare functions. Keep refining your understanding of Go's syntax.
+
+B) `function <function name>()`
+- Incorrect. You're on the right track as `function` is a keyword in some languages like JavaScript, but in Go we use `func` to declare functions.
+
+C) `func <function name>()`
+- Correct. Functions in Go are begun by using the `func` keyword, followed by the function name.
+
+Question 3: What's the primary role of the `main` function in a Go program?
+
+A) To provide the name of the executing Go file
+- Incorrect. This reflects a common misconception. In Go, `main` is a function that serves as the entry point of the program, not to provide a filename.
+
+B) To initialize application variables
+- Incorrect. While it's possible to initialize variables in the `main` function, its main role is as a program's entry point.
+
+C) To serve as the entry point of the program
+- Correct. The `main` function in a Go program is the main entry point. This is where execution begins when the program is run.
+
+Question 4: What does the `package main` clause signify in Go?
+
+A) To import the main package into the program
+- Incorrect. This signifies a common misunderstanding between importing and declaring a package. The `package main` clause actually declares that the current file belongs to the `main` package.
+
+B) To define the current file as part of the main package
+- Correct. The `package main` clause in a Go program essentially associates the current file with the `main` package.
+
+C) To declare that the file contains a main function
+- Incorrect. While an executable Go programs require the `main` function, the `package main` line does not confirm this, it denotes that the file belongs to the `main` package.
+
+Question 5: What does the following Go code snippet output?
+
+```go
+package main
+
+func main() {
+    msg := "Hello"
+    msg += ", Go!"
+    println(msg)
+}
+```
+
+A) "Hello"
+- Incorrect. The variable `msg` initially holds the string "Hello", but the string ", Go!" is appended to `msg` before being printed.
+
+B) "Hello, Go!"
+- Correct. The string ", Go!" is appended to the "Hello" string using the `+=` operator, resulting in the output "Hello, Go!".
+
+C) "Hello, Go!Hello"
+- Incorrect. The `+=` operator is used to concatenate ", Go!" to "Hello", not to reverse or duplicate the original string.
+
+1. Consider the following code snippet:
+
+   ```go
+   v := 10
+   fmt.Printf("%v, %T\n", v, v)
+   ```
+   
+   What would be the output?
+
+    A) 10, int
+    - Correct. The variable v is assigned the value 10, which is an int in Golang by default.
+
+    B) 10, float64 
+    - Incorrect. The variable v is defined and assigned an integer value, so its type will be integer, not float64.
+
+    C) It will cause a compile-time error
+    - Incorrect. The code won't cause any compile-time errors as `:=` operator is used for declaring and initializing the variable.
+
+2. What would be the output of the following code? `fmt.Println(int64(42))`
+
+    A) A compiler error
+    - Incorrect. There won't be any compiler error as this is a valid syntax to convert int to int64.
+
+    B) 42
+    - Correct. It converts the int 42 to int64, which does not change its value.
+
+    C) 64
+    - Incorrect. The int64() function converts its argument to type int64, it does not wrap it around till the argument value becomes less than 64.
+
+3. How can you declare a variable of type `float64` with an initial value `3.14` in golang?
+
+    A) var pi float64 = 3.14
+    - Correct. The `var` keyword is used to declare a variable, followed by the variable name, the type, and the value.
+
+    B) float64 pi = 3.14
+    - Incorrect. Although the arrangement of elements is similar to other languages like Java and C++, in Go the type is declared after the variable name.
+
+    C) float64 pi := 3.14
+    - Incorrect. The := operator in Go is used to declare and initialize a variable with a value, and the type of the variable is inferred from the value. We don't need to explicitly specify the type of the variable when using :=.
+
+4. Which piece of code will generate the correct byte array in Golang?
+
+    A) b := byte[5]{'H', 'e', 'l', 'l', 'o'}
+    - Incorrect. The correct syntax to declare and initialize a byte array in Go is `[]byte{'...', '...', ...}`.
+
+    B) b := []byte{'H', 'e', 'l', 'l', 'o'}
+    - Correct. This is the correct way to create a byte array. It creates a slice of bytes initialized with the specified characters.
+
+    C) b := Byte('H', 'e', 'l', 'l', 'o')
+    - Incorrect. This is not a valid syntax in Go. To declare a byte array or slice, you must put byte or []byte before the curly braces.
+
+5. Consider the code snippet: var i interface{} = "hello". What is the type of variable `i`?
+
+    A) String
+    - Incorrect. Although the value of 'i' is a string, its declared type in the code is interface{}, which can hold value of any type.
+
+    B) Interface
+    - Correct. The variable 'i' is declared as an empty interface type, which is capable of holding any type of value.
+    
+    C) Error, `i` cannot be declared without a specific type
+    - Incorrect. Declaring a variable as an interface{} is valid in Go. It's called empty interface and it can hold values of any type.
+
+1. Consider the following Golang code snippet and state what it suggests about control structures in Go.
+```go
+if true{
+  fmt.Println("Hello, Golang!")
+}
+```
+  A) Outputs "Hello, Golang!" since the if condition evaluates to true
+  - Correct. This snippet illustrates that the 'if' statement in Go is executable if the condition within it evaluates to true.
+  
+  B) This will result in a syntax error since 'if' requires an else clause too
+  - Incorrect. In Go, 'else' clause is optional. An 'if' statement can perfectly stand alone and the snippet here is well-formed.
+  
+  C) This snippet will not produce any output
+  - Incorrect. Considering Go's 'if' statement behavior, the 'fmt.Println' statement within the 'if' block will unconditionally execute because 'true' is a boolean constant.
+
+2. In Go, assume you've a requirement where you need to print all integers from 0 to 4. Which code snippet will accomplish this?
+```go
+for i := 0; i < 5; i++ {
+  fmt.Println(i) 
+}
+```
+  A) This code snippet isn't correct. Golang 'for' loop starts from 1.
+  - Incorrect. Like most programming languages, Go indexing starts at 0. The given loop starts with `i` as 0.
+  
+  B) Yes, this code snippet will print numbers 0 to 4.
+  - Correct. Given Go's zero-based indexing and the loop condition `i < 5`, the loop will iteratively print integers from 0 to 4.
+  
+  C) No, this code snippet will print numbers from 0 to 4 and then 5 as well.
+  - Incorrect. Check the loop's condition again. The loop will only execute when `i < 5`.
+
+3. Elucidate the crux of how a 'switch' statement works in Go, given its wide use in code branching.
+  A) A switch statement is primarily a tool to repeatedly execute certain blocks of code.
+  - Incorrect. 'For' or 'while' loops are used for repeated execution. 'Switch' statements are used for conditional execution based on different cases.
+  
+  B) It's a structure that enables a block of code to be tested for various possible conditions.
+  - Correct, but lacks precision. A switch statement does indeed test for different possibilities, but it's more accurate to say it matches a condition or variable to specific cases and executes the associated code block upon a match.
+  
+  C) Essentially, the switch statement checks a variable or expression against multiple specific cases and then runs the code of the first matching case.
+  - Correct. The switch statement matches the input with a list of cases and executes the code block corresponding to the first match.
+
+4. Considering Go's unique syntax, which of these correctly embodies an 'else if' statement in Go?
+  A) ```go else if (condition) { //code to be executed } ```
+  - Incorrect. The structure of Go's syntax doesn't mandate parentheses around conditions in control structures.
+  
+  B) ```go else if condition { //code to be executed } ```
+  - Correct. This is the canonical way to write 'else if' in Go, without the need for parentheses around the condition.
+  
+  C) ```go else { if condition { //code to be executed } } ```
+  - Incorrect. Technically this will function as intended, but it's inconsistent with Go's conventional 'else-if' syntax.
+
+5. Consider a more complex scenario: Given an integer `i`, write a Go program which checks whether an integer is within a specific range (5 to 15). Use control structures in your solution.
+```go
+var i = 10
+if i > 5 && i < 15 {
+  fmt.Println("Within Range")
+} else {
+  fmt.Println("Out of Range")
+}
+```
+  A) Outputs "Within Range"
+  - Correct. The given value for 'i' is 10, which is within the range (5 to 15) defined by the 'if' condition.
+  
+  B) Outputs "Out of Range"
+  - Incorrect. The value of 'i' is within the specified range, so the 'if' clause will execute, not the 'else' clause.
+
+  C) The given snippet will not compile
+  - Incorrect. The snippet is syntactically correct, and Go permits logical operators like '&&' within conditions in 'if' statements.
