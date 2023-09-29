@@ -1,0 +1,57 @@
+Unit_name: Intro to Golang & Basic Concurrency
+Page_name: Setting up Go
+
+1. What is the correct procedure for installing Go on your computer?
+    
+    A) Using the command `npm install golang` from terminal or command prompt
+    - Incorrect. Remember `npm` is used for managing Node.js packages. Go isn't installed using this command.
+    
+    B) Downloading the installer from the official Go website and following the setup process
+    - Correct. The official Go website provides the installer as well as the setup instructions for successfully installing Go on your machine.
+    
+    C) Typing `install go` in the terminal or command prompt
+    - Incorrect. Go has no built-in command in terminal or command prompt for installation. How can you claim the software without any source or reference?
+
+2. You are setting up a new project and are at the root directory. What command should you use to initialize Go modules?
+
+    A) `go mod init`
+    - Correct. This command initializes the Go module in your current directory, creating a go.mod file that tracks dependencies.
+    
+    B) `go init mod`
+    - Incorrect. Though these are the correct terms, they're in the wrong order. How should you rearrange them?
+    
+    C) `go new module`
+    - Incorrect. Although this command seems logical, it's not the correct format in Go for initialising a Go module. What command would correctly initialize a module?
+    
+3. What method would display the currently installed Go version on your terminal?
+
+    A) `go --version`
+    - Incorrect. This is a common way of checking versions in some other programs, but not in Go. Try a different approach.
+    
+    B) `go version`
+    - Correct. The command `go version` is used to check the version of Go that is currently installed.
+    
+    C) `go -v`
+    - Incorrect. The term `-v` often means verbose in many command-line tools, but it's not appropriate in this case. What else can you try?
+    
+4. You decided to start a new Go project. In what directory should you keep your source files?
+
+    A) In the bin directory of your GOPATH
+    - Incorrect. The bin directory isn't for source files, but for something else. Could you remember where you should place your Go source files?
+    
+    B) In the src directory of your GOPATH
+    - Correct. You're right. The src directory is meant for storing your Go source files.
+   
+    C) In the root of your hard drive
+    - Incorrect. Unorganized project files can cause difficulty in managing and handling the project. Go follows a certain structure for organizing its files. Where should Go source files be placed?
+
+5. What role does the go.mod file play in a Go project?
+
+    A) It contains the Go source code
+    - Incorrect. Go source code is kept in .go files, but the go.mod file has a different purpose. What does it do instead?
+    
+    B) It logs all the errors and exceptions encountered during execution
+    - Incorrect. While logging is important, the go.mod file serves a different purpose. What does a go.mod file generally keep track of?
+    
+    C) It records the module’s dependencies
+    - Correct. Yes, the go.mod file does an important job of managing dependencies of your Go project. It's updated as you add or remove dependencies.
